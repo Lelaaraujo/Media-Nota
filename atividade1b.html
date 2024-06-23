@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Média - Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding-top: 50px;
+            background-image: url(./imagem3.jpg);
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #e6cfd400;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #000000;
+        }
+        span#media {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        span#situacao {
+            display: block;
+            font-size: 20px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .aprovado {
+            color: #184474; 
+        }
+        .reprovado {
+            color: #af1221; 
+        }
+    </style>
+</head>
+<body>
+ <div class="container">
+    <h1>Calculadora de Média</h1>
+    <form id="formulario">
+        <label for="nota1">Nota 1:</label>
+        <input type="number" id="nota1" name="nota1" required step="0.01"><br><br>
+        
+        <label for="nota2">Nota 2:</label>
+        <input type="number" id="nota2" name="nota2" required step="0.01"><br><br>
+
+        <button type="button" onclick="calcularMedia()">Calcular Média</button>
+</form>
+
+<h2>Resultado:</h2>
+<p>Média: <span id="media"></span></p>
+<p>Situação: <span id="situacao"></span></p>
+ 
+
+ <script>
+    function calcularMedia() {
+    var nota1 = parseFloat(document.getElementById('nota1').value);
+    var nota2 = parseFloat(document.getElementById('nota2').value);
+
+    var media = (nota1 + nota2) / 2;
+
+    var situacaoSpan = document.getElementById('situacao');
+    if (media >= 6) {
+        situacaoSpan.innerHTML = "APROVADO";
+        situacaoSpan.className = "aprovado";
+    } else {
+        situacaoSpan.innerHTML = "REPROVADO";
+        situacaoSpan.className = "reprovado";
+    }
+
+    document.getElementById('media').innerHTML = media.toFixed(2);
+}
+ </script>
+ <p>
+    <a href="index.html">
+    <button>Página inicial</button>   
+    </a>
+    </p>
+ </div>
+</body>
+</html>
